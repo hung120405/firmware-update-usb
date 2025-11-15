@@ -1,4 +1,5 @@
 🚀 Secure Firmware Update System via USB 🚀
+
 A "brick-proof" solution for safely and automatically updating software on the Raspberry Pi Zero 2W (or similar devices) in the field.
 
 Context: Ever "bricked" an embedded device while trying a remote firmware update? I have. This project was born to solve that exact pain point. It uses the classic A/B partitioning mechanism to ensure that even if an update fails (power loss, bad file, etc.), the device can automatically "roll back" to the last known stable firmware version.
