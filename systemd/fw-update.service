@@ -1,0 +1,23 @@
+[Unit]
+Description=Firmware Update Service - Check USB for firmware updates
+After=multi-user.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Run the update check script
+ExecStart=/usr/local/bin/update_check.sh
+# Set working directory
+WorkingDirectory=/tmp
+# Standard output and error logging
+StandardOutput=journal
+StandardError=journal
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+# Timeout: If script runs longer than 5 minutes, kill it
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+

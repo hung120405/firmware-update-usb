@@ -1,0 +1,24 @@
+# udev rule for automatic USB firmware update detection
+# This rule triggers when a USB storage device is inserted
+# Place this file in /etc/udev/rules.d/99-usb-update.rules
+
+# Action: When USB storage device is added (plugged in)
+# Condition: Match USB devices with ID_FS_TYPE (filesystem type)
+# Result: Trigger systemd service fw-update.service
+
+ACTION=="add", \
+KERNEL=="sd[a-z][0-9]*", \
+SUBSYSTEM=="block", \
+ENV{ID_FS_TYPE}=="vfat|ext4|ntfs", \
+ENV{ID_FS_USAGE}=="filesystem", \
+RUN+="/bin/systemctl start fw-update.service"
+
+# Alternative: More specific rule for USB devices only
+# Uncomment below if you want to be more specific about USB devices
+# ACTION=="add", \
+# KERNEL=="sd[a-z][0-9]*", \
+# SUBSYSTEM=="block", \
+# ENV{ID_BUS}=="usb", \
+# ENV{ID_FS_TYPE}=="vfat|ext4|ntfs", \
+# RUN+="/bin/systemctl start fw-update.service"
+
