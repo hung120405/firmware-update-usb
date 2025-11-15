@@ -1,0 +1,10 @@
+{
+  "version": "1.2.0",
+  "hardware_id": "my_device_v1",
+  "checksum_md5": "abc123def456ghi789jkl012mno345pq",
+  "build_date": "2024-01-15T10:30:00Z",
+  "build_id": "build-20240115-103000",
+  "description": "Firmware update for my_device_v1",
+  "release_notes": "Bug fixes and performance improvements"
+}
+
